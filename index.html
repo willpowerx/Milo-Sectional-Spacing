@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milo Sectional Spacing — Visual Reference</title>
+
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/hah7vzn.css">
+    <link rel="stylesheet" href="s2a-layout-grids.css">
+    <link rel="stylesheet" href="s2a-tokens.css">
+    <link rel="stylesheet" href="sectional-token-styles.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ── Spacing page overrides ───────────────────────────── */
+
+        /* Intro info row */
+        .spacing-meta-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--s2a-spacing-md);
+            margin-bottom: var(--s2a-spacing-3xl);
+        }
+
+        .spacing-meta-card {
+            padding: var(--s2a-spacing-lg);
+            border: 1px solid var(--s2a-color-border-default);
+            border-radius: 8px;
+            background: var(--s2a-color-background-default);
+        }
+
+        .spacing-meta-card-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            color: var(--s2a-color-content-subtle);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .spacing-meta-card-value {
+            font-size: 0.8rem;
+            color: var(--s2a-color-content-default);
+            font-family: 'Courier New', monospace;
+        }
+
+        /* ── Each spacing class card ────────────────────────── */
+        .milo-spacing-card {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            border: 1px solid var(--s2a-color-border-default);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: var(--s2a-spacing-lg);
+            background: var(--s2a-color-background-default);
+        }
+
+        .milo-spacing-meta {
+            padding: var(--s2a-spacing-xl) var(--s2a-spacing-lg);
+            border-right: 1px solid var(--s2a-color-border-default);
+            display: flex;
+            flex-direction: column;
+            gap: var(--s2a-spacing-sm);
+            justify-content: center;
+        }
+
+        .milo-spacing-classname {
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            color: #e018aa;
+            letter-spacing: -0.01em;
+            display: block;
+        }
+
+        .milo-spacing-prop {
+            font-size: 0.7rem;
+            color: var(--s2a-color-content-subtle);
+            font-family: 'Courier New', monospace;
+            display: block;
+        }
+
+        .milo-spacing-chain {
+            margin-top: var(--s2a-spacing-xs);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .milo-spacing-chain span {
+            font-size: 0.65rem;
+            font-family: 'Courier New', monospace;
+            color: var(--s2a-color-content-subtle);
+            line-height: 1.5;
+        }
+
+        .milo-spacing-chain span.chain-root {
+            color: var(--s2a-color-content-default);
+            font-weight: 600;
+        }
+
+        /* ── Visual strip area ──────────────────────────────── */
+        .milo-spacing-visual {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spacing-live-strip {
+            display: grid;
+            grid-template-rows: var(--pad-top, 0px) auto var(--pad-bottom, 0px);
+            flex: 1;
+            min-height: 80px;
+        }
+
+        .strip-pad-zone {
+            position: relative;
+            background: rgba(224, 24, 170, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: var(--s2a-spacing-lg);
+            overflow: hidden;
+        }
+
+        .strip-pad-zone.top {
+            border-bottom: 1px dashed rgba(224, 24, 170, 0.35);
+        }
+
+        .strip-pad-zone.bottom {
+            border-top: 1px dashed rgba(224, 24, 170, 0.35);
+        }
+
+        .strip-pad-zone-label {
+            font-size: 0.6rem;
+            font-family: 'Courier New', monospace;
+            color: rgba(224, 24, 170, 0.6);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+
+        /* Only show label when zone has enough height */
+        .strip-pad-zone:not(.is-zero) .strip-pad-zone-label {
+            opacity: 1;
+        }
+
+        .strip-content-zone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--s2a-spacing-md) var(--s2a-spacing-xl);
+            background: var(--s2a-color-background-default);
+            min-height: 44px;
+        }
+
+        .strip-content-chip {
+            font-size: 0.7rem;
+            color: var(--s2a-color-content-subtle);
+            border: 1px dashed var(--s2a-color-border-subtle);
+            border-radius: 4px;
+            padding: 3px 12px;
+            white-space: nowrap;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* ── Breakpoint table ────────────────────────────────── */
+        .spacing-bp-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--s2a-color-border-default);
+        }
+
+        .spacing-bp-cell {
+            padding: var(--s2a-spacing-sm) var(--s2a-spacing-md);
+            text-align: center;
+            border-right: 1px solid var(--s2a-color-border-default);
+            background: var(--s2a-color-background-subtle);
+            transition: background 0.15s;
+        }
+
+        .spacing-bp-cell:last-child {
+            border-right: none;
+        }
+
+        .spacing-bp-cell.is-active {
+            background: var(--s2a-color-background-default);
+        }
+
+        .spacing-bp-cell.is-active .bp-val {
+            color: #e018aa;
+        }
+
+        .bp-breakpoint {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            font-weight: 700;
+            color: var(--s2a-color-content-subtle);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .bp-val {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--s2a-color-content-default);
+            display: block;
+            font-family: 'Courier New', monospace;
+            line-height: 1.2;
+            transition: color 0.15s;
+        }
+
+        .bp-token {
+            font-size: 0.55rem;
+            color: var(--s2a-color-content-subtle);
+            font-family: 'Courier New', monospace;
+            display: block;
+            margin-top: 3px;
+        }
+
+        /* ── Special state: none ─────────────────────────────── */
+        .milo-spacing-card.is-none .strip-content-zone {
+            min-height: 60px;
+        }
+
+        .milo-spacing-card.is-none .strip-pad-zone {
+            min-height: 0;
+        }
+
+        /* ── Token chain reference section ──────────────────── */
+        .token-chain-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+
+        .token-chain-table th {
+            text-align: left;
+            padding: var(--s2a-spacing-sm) var(--s2a-spacing-md);
+            background: var(--s2a-color-background-subtle);
+            border: 1px solid var(--s2a-color-border-default);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            font-weight: 700;
+            color: var(--s2a-color-content-subtle);
+        }
+
+        .token-chain-table td {
+            padding: var(--s2a-spacing-sm) var(--s2a-spacing-md);
+            border: 1px solid var(--s2a-color-border-default);
+            font-family: 'Courier New', monospace;
+            vertical-align: top;
+            background: var(--s2a-color-background-default);
+        }
+
+        .token-chain-table tr:hover td {
+            background: var(--s2a-color-background-subtle);
+        }
+
+        .token-chain-table td.td-class {
+            font-weight: 700;
+            color: #e018aa;
+            white-space: nowrap;
+        }
+
+        .token-chain-table td.td-val {
+            font-weight: 700;
+            color: var(--s2a-color-content-default);
+        }
+
+        .token-chain-table td.td-val.is-current-bp {
+            color: #e018aa;
+        }
+
+        .token-chain-table td small {
+            display: block;
+            font-size: 0.6rem;
+            color: var(--s2a-color-content-subtle);
+            margin-top: 2px;
+        }
+
+        /* ── Top-bottom variant section ─────────────────────── */
+        .variant-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--s2a-spacing-md);
+        }
+
+        .variant-card {
+            border: 1px solid var(--s2a-color-border-default);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--s2a-color-background-default);
+        }
+
+        .variant-card-header {
+            padding: var(--s2a-spacing-md) var(--s2a-spacing-lg);
+            border-bottom: 1px solid var(--s2a-color-border-default);
+            background: var(--s2a-color-background-subtle);
+        }
+
+        .variant-card-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            color: var(--s2a-color-content-default);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .variant-card-desc {
+            font-size: 0.65rem;
+            color: var(--s2a-color-content-subtle);
+        }
+
+        .variant-token-list {
+            padding: var(--s2a-spacing-md) var(--s2a-spacing-lg);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .variant-token-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            border-bottom: 1px solid var(--s2a-color-border-default);
+        }
+
+        .variant-token-row:last-child {
+            border-bottom: none;
+        }
+
+        .variant-token-name {
+            font-size: 0.7rem;
+            font-family: 'Courier New', monospace;
+            color: #e018aa;
+            font-weight: 600;
+        }
+
+        .variant-token-prop {
+            font-size: 0.65rem;
+            font-family: 'Courier New', monospace;
+            color: var(--s2a-color-content-subtle);
+        }
+
+        /* ── Responsive ──────────────────────────────────────── */
+        @media (max-width: 900px) {
+            .milo-spacing-card {
+                grid-template-columns: 1fr;
+            }
+            .milo-spacing-meta {
+                border-right: none;
+                border-bottom: 1px solid var(--s2a-color-border-default);
+            }
+            .spacing-meta-row {
+                grid-template-columns: 1fr;
+            }
+            .variant-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Current BP badge ────────────────────────────────── */
+        .bp-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: var(--s2a-color-background-default);
+            border: 1px solid var(--s2a-color-border-default);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--s2a-color-content-subtle);
+            font-family: 'Courier New', monospace;
+            margin-bottom: var(--s2a-spacing-xl);
+        }
+
+        .bp-indicator .bp-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e018aa;
+        }
+
+        .bp-indicator .bp-name {
+            color: var(--s2a-color-content-default);
+        }
+    </style>
+</head>
+
+<body class="theme-light">
+
+    <div class="container main-layout">
+        <div class="row">
+
+            <!-- Nav -->
+            <header class="top-nav sticky-nav col-12">
+                <nav>
+                    <div class="nav-title">Milo Spacing</div>
+                    <ul class="nav-list">
+                        <li><a href="#spacing-classes" class="con-btn con-btn-ghost con-btn-sm">Spacing Classes</a></li>
+                        <li><a href="#token-chain" class="con-btn con-btn-ghost con-btn-sm">Token Chain</a></li>
+                        <li><a href="#variants" class="con-btn con-btn-ghost con-btn-sm">Top / Bottom</a></li>
+                        <li><a href="#static-variants" class="con-btn con-btn-ghost con-btn-sm">Static</a></li>
+                    </ul>
+                    <button class="nav-theme-toggle" id="colorModeToggle" onclick="toggleColorMode()" aria-label="Toggle color mode">
+                        <span class="nav-theme-toggle-icon" aria-hidden="true">☀</span>
+                        <span id="currentThemeLabel">Light</span>
+                    </button>
+                </nav>
+            </header>
+
+            <main class="content col-12">
+
+                <!-- Hero -->
+                <header class="marquee">
+                    <h1 class="headline">Milo Sectional Spacing</h1>
+                    <p class="subtitle">Visual reference for <code>.spacing-*</code> utility classes — responsive <code>padding-block</code> tokens for section-level vertical rhythm</p>
+                </header>
+
+                <!-- Intro meta -->
+                <div class="spacing-meta-row">
+                    <div class="spacing-meta-card">
+                        <span class="spacing-meta-card-label">CSS Property</span>
+                        <span class="spacing-meta-card-value">padding-block (top + bottom)</span>
+                    </div>
+                    <div class="spacing-meta-card">
+                        <span class="spacing-meta-card-label">Token Layer</span>
+                        <span class="spacing-meta-card-value">--s2a-viewport-vertical-padding-*</span>
+                    </div>
+                    <div class="spacing-meta-card">
+                        <span class="spacing-meta-card-label">Breakpoints</span>
+                        <span class="spacing-meta-card-value">Mobile &lt;1024 / Tablet ≥1024 / Desktop ≥1280</span>
+                    </div>
+                </div>
+
+                <!-- ─────────────────────────────────────────────
+                     Spacing Classes
+                ───────────────────────────────────────────── -->
+                <section id="spacing-classes" class="token-section">
+                    <div class="section-header">
+                        <h2>Spacing Classes</h2>
+                        <p>Each class applies <code>padding-block</code> to a Milo section. Values escalate at each breakpoint. The tinted zones in each card are live — they resize with your viewport.</p>
+                    </div>
+
+                    <!-- Current breakpoint indicator -->
+                    <div class="bp-indicator" id="bpIndicator">
+                        <span class="bp-dot"></span>
+                        <span>Active breakpoint: <span class="bp-name" id="bpName">Desktop</span></span>
+                    </div>
+
+                    <!-- .spacing-none -->
+                    <div class="milo-spacing-card is-none">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-none</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-none)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-none</span>
+                                <span>→ --s2a-spacing-none → --s2a-spacing-0</span>
+                                <span>→ 0px (all breakpoints)</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip">
+                                <div class="strip-pad-zone top is-zero">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content — no vertical padding</span>
+                                </div>
+                                <div class="strip-pad-zone bottom is-zero">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">0px</span>
+                                    <span class="bp-token">--s2a-spacing-none</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">0px</span>
+                                    <span class="bp-token">--s2a-spacing-none</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">0px</span>
+                                    <span class="bp-token">--s2a-spacing-none</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-4xs -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-4xs</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-4xs)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-4xs</span>
+                                <span>all: --s2a-spacing-xs → 8px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-4xs) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-4xs) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">8px</span>
+                                    <span class="bp-token">--s2a-spacing-xs</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">8px</span>
+                                    <span class="bp-token">--s2a-spacing-xs</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">8px</span>
+                                    <span class="bp-token">--s2a-spacing-xs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-3xs -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-3xs</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-3xs)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-3xs</span>
+                                <span>all: --s2a-spacing-md → 16px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-3xs) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-3xs) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">16px</span>
+                                    <span class="bp-token">--s2a-spacing-md</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">16px</span>
+                                    <span class="bp-token">--s2a-spacing-md</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">16px</span>
+                                    <span class="bp-token">--s2a-spacing-md</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-2xs -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-2xs</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-2xs)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-2xs</span>
+                                <span>sm: --s2a-spacing-md → 16px</span>
+                                <span>md+: --s2a-spacing-lg → 24px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-2xs) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-2xs) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">16px</span>
+                                    <span class="bp-token">--s2a-spacing-md</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">24px</span>
+                                    <span class="bp-token">--s2a-spacing-lg</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">24px</span>
+                                    <span class="bp-token">--s2a-spacing-lg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-xs -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-xs</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-xs)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-xs</span>
+                                <span>sm: --s2a-spacing-md → 16px</span>
+                                <span>md: --s2a-spacing-lg → 24px</span>
+                                <span>lg: --s2a-spacing-xl → 32px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-xs) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-xs) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">16px</span>
+                                    <span class="bp-token">--s2a-spacing-md</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">24px</span>
+                                    <span class="bp-token">--s2a-spacing-lg</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">32px</span>
+                                    <span class="bp-token">--s2a-spacing-xl</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-sm -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-sm</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-sm)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-sm</span>
+                                <span>sm: --s2a-spacing-lg → 24px</span>
+                                <span>md: --s2a-spacing-xl → 32px</span>
+                                <span>lg: --s2a-spacing-2xl → 40px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-sm) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-sm) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">24px</span>
+                                    <span class="bp-token">--s2a-spacing-lg</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">32px</span>
+                                    <span class="bp-token">--s2a-spacing-xl</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">40px</span>
+                                    <span class="bp-token">--s2a-spacing-2xl</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-md -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-md</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-md)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-md</span>
+                                <span>sm: --s2a-spacing-xl → 32px</span>
+                                <span>md: --s2a-spacing-2xl → 40px</span>
+                                <span>lg: --s2a-spacing-3xl → 48px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-md) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-md) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">32px</span>
+                                    <span class="bp-token">--s2a-spacing-xl</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">40px</span>
+                                    <span class="bp-token">--s2a-spacing-2xl</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">48px</span>
+                                    <span class="bp-token">--s2a-spacing-3xl</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-lg -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-lg</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-lg)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-lg</span>
+                                <span>sm: --s2a-spacing-lg → 24px</span>
+                                <span>md: --s2a-spacing-2xl → 40px</span>
+                                <span>lg: --s2a-spacing-4xl → 64px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-lg) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-lg) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">24px</span>
+                                    <span class="bp-token">--s2a-spacing-lg</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">40px</span>
+                                    <span class="bp-token">--s2a-spacing-2xl</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">64px</span>
+                                    <span class="bp-token">--s2a-spacing-4xl</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-xl -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-xl</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-xl)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-xl</span>
+                                <span>sm: --s2a-spacing-xl → 32px</span>
+                                <span>md: --s2a-spacing-4xl → 64px</span>
+                                <span>lg: --s2a-layout-sm → 80px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-xl) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-xl) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">32px</span>
+                                    <span class="bp-token">--s2a-spacing-xl</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">64px</span>
+                                    <span class="bp-token">--s2a-spacing-4xl</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">80px</span>
+                                    <span class="bp-token">--s2a-layout-sm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-2xl -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-2xl</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-2xl)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-2xl</span>
+                                <span>sm: --s2a-spacing-2xl → 40px</span>
+                                <span>md: --s2a-layout-sm → 80px</span>
+                                <span>lg: --s2a-layout-lg → 124px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-2xl) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-2xl) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">40px</span>
+                                    <span class="bp-token">--s2a-spacing-2xl</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">80px</span>
+                                    <span class="bp-token">--s2a-layout-sm</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">124px</span>
+                                    <span class="bp-token">--s2a-layout-lg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-3xl -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-3xl</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-3xl)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-3xl</span>
+                                <span>sm: --s2a-spacing-4xl → 64px</span>
+                                <span>md: --s2a-layout-lg → 124px</span>
+                                <span>lg: --s2a-layout-xl → 160px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-3xl) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-3xl) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">64px</span>
+                                    <span class="bp-token">--s2a-spacing-4xl</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">124px</span>
+                                    <span class="bp-token">--s2a-layout-lg</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">160px</span>
+                                    <span class="bp-token">--s2a-layout-xl</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- .spacing-4xl -->
+                    <div class="milo-spacing-card">
+                        <div class="milo-spacing-meta">
+                            <code class="milo-spacing-classname">.spacing-4xl</code>
+                            <span class="milo-spacing-prop">padding-block: var(--s2a-viewport-vertical-padding-4xl)</span>
+                            <div class="milo-spacing-chain">
+                                <span class="chain-root">→ --s2a-viewport-vertical-padding-4xl</span>
+                                <span>sm: --s2a-layout-sm → 80px</span>
+                                <span>md: --s2a-layout-xl → 160px</span>
+                                <span>lg: --s2a-layout-2xl → 240px</span>
+                            </div>
+                        </div>
+                        <div class="milo-spacing-visual">
+                            <div class="spacing-live-strip" style="--pad-top: calc(var(--s2a-viewport-vertical-padding-4xl) * 0.5); --pad-bottom: calc(var(--s2a-viewport-vertical-padding-4xl) * 0.5);">
+                                <div class="strip-pad-zone top">
+                                    <span class="strip-pad-zone-label">padding-top</span>
+                                </div>
+                                <div class="strip-content-zone">
+                                    <span class="strip-content-chip">section content</span>
+                                </div>
+                                <div class="strip-pad-zone bottom">
+                                    <span class="strip-pad-zone-label">padding-bottom</span>
+                                </div>
+                            </div>
+                            <div class="spacing-bp-table">
+                                <div class="spacing-bp-cell" data-bp="mobile">
+                                    <span class="bp-breakpoint">Mobile</span>
+                                    <span class="bp-val">80px</span>
+                                    <span class="bp-token">--s2a-layout-sm</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="tablet">
+                                    <span class="bp-breakpoint">Tablet</span>
+                                    <span class="bp-val">160px</span>
+                                    <span class="bp-token">--s2a-layout-xl</span>
+                                </div>
+                                <div class="spacing-bp-cell" data-bp="desktop">
+                                    <span class="bp-breakpoint">Desktop</span>
+                                    <span class="bp-val">240px</span>
+                                    <span class="bp-token">--s2a-layout-2xl</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ─────────────────────────────────────────────
+                     Token Chain Reference
+                ───────────────────────────────────────────── -->
+                <section id="token-chain" class="token-section">
+                    <div class="section-header">
+                        <h2>Token Chain</h2>
+                        <p>Full resolution path from Milo class → viewport padding token → spacing/layout primitive → final pixel value at each breakpoint.</p>
+                    </div>
+
+                    <table class="token-chain-table bento-card">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Viewport Token</th>
+                                <th>Mobile (&lt;1024px)</th>
+                                <th>Tablet (≥1024px)</th>
+                                <th>Desktop (≥1280px)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="td-class">.spacing-none</td>
+                                <td>--s2a-viewport-vertical-padding-none</td>
+                                <td class="td-val" data-bp-col="mobile">0px<small>--s2a-spacing-none</small></td>
+                                <td class="td-val" data-bp-col="tablet">0px<small>--s2a-spacing-none</small></td>
+                                <td class="td-val" data-bp-col="desktop">0px<small>--s2a-spacing-none</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-4xs</td>
+                                <td>--s2a-viewport-vertical-padding-4xs</td>
+                                <td class="td-val" data-bp-col="mobile">8px<small>--s2a-spacing-xs</small></td>
+                                <td class="td-val" data-bp-col="tablet">8px<small>--s2a-spacing-xs</small></td>
+                                <td class="td-val" data-bp-col="desktop">8px<small>--s2a-spacing-xs</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-3xs</td>
+                                <td>--s2a-viewport-vertical-padding-3xs</td>
+                                <td class="td-val" data-bp-col="mobile">16px<small>--s2a-spacing-md</small></td>
+                                <td class="td-val" data-bp-col="tablet">16px<small>--s2a-spacing-md</small></td>
+                                <td class="td-val" data-bp-col="desktop">16px<small>--s2a-spacing-md</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-2xs</td>
+                                <td>--s2a-viewport-vertical-padding-2xs</td>
+                                <td class="td-val" data-bp-col="mobile">16px<small>--s2a-spacing-md</small></td>
+                                <td class="td-val" data-bp-col="tablet">24px<small>--s2a-spacing-lg</small></td>
+                                <td class="td-val" data-bp-col="desktop">24px<small>--s2a-spacing-lg</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-xs</td>
+                                <td>--s2a-viewport-vertical-padding-xs</td>
+                                <td class="td-val" data-bp-col="mobile">16px<small>--s2a-spacing-md</small></td>
+                                <td class="td-val" data-bp-col="tablet">24px<small>--s2a-spacing-lg</small></td>
+                                <td class="td-val" data-bp-col="desktop">32px<small>--s2a-spacing-xl</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-sm</td>
+                                <td>--s2a-viewport-vertical-padding-sm</td>
+                                <td class="td-val" data-bp-col="mobile">24px<small>--s2a-spacing-lg</small></td>
+                                <td class="td-val" data-bp-col="tablet">32px<small>--s2a-spacing-xl</small></td>
+                                <td class="td-val" data-bp-col="desktop">40px<small>--s2a-spacing-2xl</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-md</td>
+                                <td>--s2a-viewport-vertical-padding-md</td>
+                                <td class="td-val" data-bp-col="mobile">32px<small>--s2a-spacing-xl</small></td>
+                                <td class="td-val" data-bp-col="tablet">40px<small>--s2a-spacing-2xl</small></td>
+                                <td class="td-val" data-bp-col="desktop">48px<small>--s2a-spacing-3xl</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-lg</td>
+                                <td>--s2a-viewport-vertical-padding-lg</td>
+                                <td class="td-val" data-bp-col="mobile">24px<small>--s2a-spacing-lg</small></td>
+                                <td class="td-val" data-bp-col="tablet">40px<small>--s2a-spacing-2xl</small></td>
+                                <td class="td-val" data-bp-col="desktop">64px<small>--s2a-spacing-4xl</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-xl</td>
+                                <td>--s2a-viewport-vertical-padding-xl</td>
+                                <td class="td-val" data-bp-col="mobile">32px<small>--s2a-spacing-xl</small></td>
+                                <td class="td-val" data-bp-col="tablet">64px<small>--s2a-spacing-4xl</small></td>
+                                <td class="td-val" data-bp-col="desktop">80px<small>--s2a-layout-sm</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-2xl</td>
+                                <td>--s2a-viewport-vertical-padding-2xl</td>
+                                <td class="td-val" data-bp-col="mobile">40px<small>--s2a-spacing-2xl</small></td>
+                                <td class="td-val" data-bp-col="tablet">80px<small>--s2a-layout-sm</small></td>
+                                <td class="td-val" data-bp-col="desktop">124px<small>--s2a-layout-lg</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-3xl</td>
+                                <td>--s2a-viewport-vertical-padding-3xl</td>
+                                <td class="td-val" data-bp-col="mobile">64px<small>--s2a-spacing-4xl</small></td>
+                                <td class="td-val" data-bp-col="tablet">124px<small>--s2a-layout-lg</small></td>
+                                <td class="td-val" data-bp-col="desktop">160px<small>--s2a-layout-xl</small></td>
+                            </tr>
+                            <tr>
+                                <td class="td-class">.spacing-4xl</td>
+                                <td>--s2a-viewport-vertical-padding-4xl</td>
+                                <td class="td-val" data-bp-col="mobile">80px<small>--s2a-layout-sm</small></td>
+                                <td class="td-val" data-bp-col="tablet">160px<small>--s2a-layout-xl</small></td>
+                                <td class="td-val" data-bp-col="desktop">240px<small>--s2a-layout-2xl</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- ─────────────────────────────────────────────
+                     Top / Bottom Variants
+                ───────────────────────────────────────────── -->
+                <section id="variants" class="token-section">
+                    <div class="section-header">
+                        <h2>Top / Bottom Variants</h2>
+                        <p>Each spacing class has <code>-top</code> and <code>-bottom</code> variants that apply <code>padding-top</code> or <code>padding-bottom</code> independently. Same responsive token values apply.</p>
+                    </div>
+
+                    <div class="variant-grid">
+                        <div class="variant-card">
+                            <div class="variant-card-header">
+                                <span class="variant-card-title">.spacing-*-top</span>
+                                <span class="variant-card-desc">padding-top only — same responsive values</span>
+                            </div>
+                            <div class="variant-token-list">
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-none-top</span>
+                                    <span class="variant-token-prop">padding-top: 0px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-4xs-top</span>
+                                    <span class="variant-token-prop">padding-top: 8 / 8 / 8px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-3xs-top</span>
+                                    <span class="variant-token-prop">padding-top: 16 / 16 / 16px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-2xs-top</span>
+                                    <span class="variant-token-prop">padding-top: 16 / 24 / 24px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-xs-top</span>
+                                    <span class="variant-token-prop">padding-top: 16 / 24 / 32px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-sm-top</span>
+                                    <span class="variant-token-prop">padding-top: 24 / 32 / 40px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-md-top</span>
+                                    <span class="variant-token-prop">padding-top: 32 / 40 / 48px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-lg-top</span>
+                                    <span class="variant-token-prop">padding-top: 24 / 40 / 64px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-xl-top</span>
+                                    <span class="variant-token-prop">padding-top: 32 / 64 / 80px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-2xl-top</span>
+                                    <span class="variant-token-prop">padding-top: 40 / 80 / 124px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-3xl-top</span>
+                                    <span class="variant-token-prop">padding-top: 64 / 124 / 160px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-4xl-top</span>
+                                    <span class="variant-token-prop">padding-top: 80 / 160 / 240px</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="variant-card">
+                            <div class="variant-card-header">
+                                <span class="variant-card-title">.spacing-*-bottom</span>
+                                <span class="variant-card-desc">padding-bottom only — same responsive values</span>
+                            </div>
+                            <div class="variant-token-list">
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-none-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 0px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-4xs-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 8 / 8 / 8px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-3xs-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 16 / 16 / 16px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-2xs-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 16 / 24 / 24px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-xs-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 16 / 24 / 32px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-sm-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 24 / 32 / 40px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-md-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 32 / 40 / 48px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-lg-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 24 / 40 / 64px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-xl-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 32 / 64 / 80px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-2xl-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 40 / 80 / 124px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-3xl-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 64 / 124 / 160px</span>
+                                </div>
+                                <div class="variant-token-row">
+                                    <span class="variant-token-name">.spacing-4xl-bottom</span>
+                                    <span class="variant-token-prop">padding-bottom: 80 / 160 / 240px</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ─────────────────────────────────────────────
+                     Static Variants
+                ───────────────────────────────────────────── -->
+                <section id="static-variants" class="token-section">
+                    <div class="section-header">
+                        <h2>Static Variants</h2>
+                        <p>Fixed <code>padding-block</code> values that do not change across breakpoints. Each <code>.spacing-*-static</code> class maps directly to a primitive spacing or layout token — use when a layout needs the same space at desktop, tablet, and mobile.</p>
+                    </div>
+
+                    <div class="variant-card">
+                        <div class="variant-card-header">
+                            <span class="variant-card-title">.spacing-*-static</span>
+                            <span class="variant-card-desc">padding-block — fixed value, all breakpoints</span>
+                        </div>
+                        <div class="variant-token-list">
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-4xs-static</span>
+                                <span class="variant-token-prop">8px — --s2a-spacing-xs</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-3xs-static</span>
+                                <span class="variant-token-prop">16px — --s2a-spacing-md</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-2xs-static</span>
+                                <span class="variant-token-prop">24px — --s2a-spacing-lg</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-xs-static</span>
+                                <span class="variant-token-prop">32px — --s2a-spacing-xl</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-sm-static</span>
+                                <span class="variant-token-prop">40px — --s2a-spacing-2xl</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-md-static</span>
+                                <span class="variant-token-prop">48px — --s2a-spacing-3xl</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-lg-static</span>
+                                <span class="variant-token-prop">64px — --s2a-spacing-4xl</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-xl-static</span>
+                                <span class="variant-token-prop">80px — --s2a-layout-sm</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-2xl-static</span>
+                                <span class="variant-token-prop">124px — --s2a-layout-lg</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-3xl-static</span>
+                                <span class="variant-token-prop">160px — --s2a-layout-xl</span>
+                            </div>
+                            <div class="variant-token-row">
+                                <span class="variant-token-name">.spacing-4xl-static</span>
+                                <span class="variant-token-prop">240px — --s2a-layout-2xl</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // ── Nav active state ─────────────────────────────────
+        const sections = document.querySelectorAll('.token-section[id]');
+        const navLinks = document.querySelectorAll('.nav-list a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { root: null, rootMargin: '-20% 0px -80% 0px', threshold: 0 });
+
+        sections.forEach(s => observer.observe(s));
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+                        history.pushState(null, null, href);
+                    }
+                }
+            });
+        });
+
+        // ── Theme toggle ─────────────────────────────────────
+        function toggleColorMode() {
+            const html = document.documentElement;
+            const body = document.body;
+            const btn = document.getElementById('colorModeToggle');
+            const label = document.getElementById('currentThemeLabel');
+            const icon = btn.querySelector('.nav-theme-toggle-icon');
+
+            if (!html.getAttribute('data-theme') || html.getAttribute('data-theme') === 'light') {
+                html.setAttribute('data-theme', 'dark');
+                body.classList.replace('theme-light', 'theme-dark');
+                label.textContent = 'Dark';
+                icon.textContent = '☾';
+            } else {
+                html.setAttribute('data-theme', 'light');
+                body.classList.replace('theme-dark', 'theme-light');
+                label.textContent = 'Light';
+                icon.textContent = '☀';
+            }
+        }
+
+        // ── Active breakpoint highlighting ───────────────────
+        function getCurrentBp() {
+            const w = window.innerWidth;
+            if (w >= 1280) return 'desktop';
+            if (w >= 1024) return 'tablet';
+            return 'mobile';
+        }
+
+        function updateBpHighlight() {
+            const bp = getCurrentBp();
+            const labels = { mobile: 'Mobile (<1024px)', tablet: 'Tablet (≥1024px)', desktop: 'Desktop (≥1280px)' };
+
+            document.getElementById('bpName').textContent = labels[bp];
+
+            // Highlight active column in each bp table
+            document.querySelectorAll('.spacing-bp-cell').forEach(cell => {
+                cell.classList.toggle('is-active', cell.dataset.bp === bp);
+            });
+
+            // Highlight active column in token chain table
+            document.querySelectorAll('.td-val[data-bp-col]').forEach(cell => {
+                cell.classList.toggle('is-current-bp', cell.dataset.bpCol === bp);
+            });
+        }
+
+        window.addEventListener('resize', () => {
+            clearTimeout(window._bpTimer);
+            window._bpTimer = setTimeout(updateBpHighlight, 50);
+        });
+
+        window.addEventListener('DOMContentLoaded', updateBpHighlight);
+    </script>
+
+</body>
+</html>
