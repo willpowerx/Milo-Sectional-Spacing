@@ -97,9 +97,9 @@
 .spacing-md-static   { padding-block: var(--s2a-spacing-3xl); }
 .spacing-lg-static   { padding-block: var(--s2a-spacing-4xl); }
 .spacing-xl-static   { padding-block: var(--s2a-layout-sm); }
-.spacing-2xl-static  { padding-block: var(--s2a-layout-lg); }
-.spacing-3xl-static  { padding-block: var(--s2a-layout-xl); }
-.spacing-4xl-static  { padding-block: var(--s2a-layout-2xl); }
+.spacing-2xl-static  { padding-block: var(--s2a-layout-md); }
+.spacing-3xl-static  { padding-block: var(--s2a-layout-lg); }
+.spacing-4xl-static  { padding-block: var(--s2a-layout-xl); }
 .spacing-5xl-static  { padding-block: var(--s2a-layout-2xl); }
 
 

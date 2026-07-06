@@ -9,7 +9,7 @@ Open `index.html` directly in a browser — no build step required.
 ## What it covers
 
 | Section | Purpose |
-|---|---|
+| --- | --- |
 | **Spacing Classes** | Live cards for every class — tinted padding zones resize with the viewport |
 | **Token Chain** | Full resolution table: class → viewport token → primitive → px value per breakpoint |
 | **Top / Bottom** | Reference list of `.spacing-*-top` and `.spacing-*-bottom` variants |
@@ -24,7 +24,7 @@ Open `index.html` directly in a browser — no build step required.
 Values listed as Mobile / Tablet / Desktop (px).
 
 | Class | Mobile | Tablet | Desktop |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `.spacing-none` | 0 | 0 | 0 |
 | `.spacing-5xs` | 8 | 8 | 8 |
 | `.spacing-4xs` | 12 | 12 | 12 |
@@ -47,7 +47,7 @@ Breakpoints: Mobile `< 1024px` · Tablet `≥ 1024px` · Desktop `≥ 1280px`
 Fixed value at all breakpoints — no responsive override.
 
 | Class | Value |
-|---|---|
+| --- | --- |
 | `.spacing-5xs-static` | 8px |
 | `.spacing-4xs-static` | 12px |
 | `.spacing-3xs-static` | 16px |
@@ -57,9 +57,9 @@ Fixed value at all breakpoints — no responsive override.
 | `.spacing-md-static` | 48px |
 | `.spacing-lg-static` | 64px |
 | `.spacing-xl-static` | 80px |
-| `.spacing-2xl-static` | 124px |
-| `.spacing-3xl-static` | 160px |
-| `.spacing-4xl-static` | 240px |
+| `.spacing-2xl-static` | 96px |
+| `.spacing-3xl-static` | 124px |
+| `.spacing-4xl-static` | 160px |
 | `.spacing-5xl-static` | 240px |
 
 ---
@@ -68,7 +68,7 @@ Fixed value at all breakpoints — no responsive override.
 
 Three-layer resolution chain:
 
-```
+```text
 .spacing-sm
   └── padding-block: var(--s2a-viewport-vertical-padding-sm)
         └── var(--s2a-spacing-lg)          ← mobile base
@@ -91,7 +91,7 @@ Static classes skip layer 3 and reference semantic aliases directly.
 ## Files
 
 | File | Role |
-|---|---|
+| --- | --- |
 | `index.html` | Visual reference page |
 | `sectional-token-styles.css` | Viewport token definitions + `.spacing-*` class declarations |
 | `s2a-tokens.css` | Primitive and semantic token source — read-only reference |
