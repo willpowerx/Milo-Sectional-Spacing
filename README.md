@@ -26,7 +26,8 @@ Values listed as Mobile / Tablet / Desktop (px).
 | Class | Mobile | Tablet | Desktop |
 |---|---|---|---|
 | `.spacing-none` | 0 | 0 | 0 |
-| `.spacing-4xs` | 8 | 8 | 8 |
+| `.spacing-5xs` | 8 | 8 | 8 |
+| `.spacing-4xs` | 12 | 12 | 12 |
 | `.spacing-3xs` | 16 | 16 | 16 |
 | `.spacing-2xs` | 16 | 24 | 24 |
 | `.spacing-xs` | 16 | 24 | 32 |
@@ -34,9 +35,10 @@ Values listed as Mobile / Tablet / Desktop (px).
 | `.spacing-md` | 32 | 40 | 48 |
 | `.spacing-lg` | 24 | 40 | 64 |
 | `.spacing-xl` | 32 | 64 | 80 |
-| `.spacing-2xl` | 40 | 80 | 124 |
-| `.spacing-3xl` | 64 | 124 | 160 |
-| `.spacing-4xl` | 80 | 160 | 240 |
+| `.spacing-2xl` | 40 | 64 | 96 |
+| `.spacing-3xl` | 40 | 80 | 124 |
+| `.spacing-4xl` | 64 | 124 | 160 |
+| `.spacing-5xl` | 80 | 160 | 240 |
 
 Breakpoints: Mobile `< 1024px` · Tablet `≥ 1024px` · Desktop `≥ 1280px`
 
@@ -46,7 +48,8 @@ Fixed value at all breakpoints — no responsive override.
 
 | Class | Value |
 |---|---|
-| `.spacing-4xs-static` | 8px |
+| `.spacing-5xs-static` | 8px |
+| `.spacing-4xs-static` | 12px |
 | `.spacing-3xs-static` | 16px |
 | `.spacing-2xs-static` | 24px |
 | `.spacing-xs-static` | 32px |
@@ -57,6 +60,7 @@ Fixed value at all breakpoints — no responsive override.
 | `.spacing-2xl-static` | 124px |
 | `.spacing-3xl-static` | 160px |
 | `.spacing-4xl-static` | 240px |
+| `.spacing-5xl-static` | 240px |
 
 ---
 
