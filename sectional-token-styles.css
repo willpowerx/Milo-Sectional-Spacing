@@ -1,0 +1,72 @@
+/* =========================================
+   Milo Sectional Spacing — .spacing-* utility classes
+   Source tokens: --s2a-section-spacing-* (s2a-tokens.css, v0.0.20+)
+
+   Prior to v0.0.20 this file locally reimplemented a 14-rung
+   responsive scale on top of --s2a-viewport-vertical-padding-*.
+   That scale has since been published upstream as the official
+   --s2a-section-spacing-* tokens — this file now consumes them
+   directly instead of redeclaring the values.
+   ========================================= */
+
+/* Milo-specific declarations - Sectional tokens expanded */
+
+.spacing-none { padding-block: var(--s2a-section-spacing-none); }
+.spacing-5xs  { padding-block: var(--s2a-section-spacing-5xs); }
+.spacing-4xs  { padding-block: var(--s2a-section-spacing-4xs); }
+.spacing-3xs  { padding-block: var(--s2a-section-spacing-3xs); }
+.spacing-2xs  { padding-block: var(--s2a-section-spacing-2xs); }
+.spacing-xs   { padding-block: var(--s2a-section-spacing-xs); }
+.spacing-sm   { padding-block: var(--s2a-section-spacing-sm); }
+.spacing-md   { padding-block: var(--s2a-section-spacing-md); }
+.spacing-lg   { padding-block: var(--s2a-section-spacing-lg); }
+.spacing-xl   { padding-block: var(--s2a-section-spacing-xl); }
+.spacing-2xl  { padding-block: var(--s2a-section-spacing-2xl); }
+.spacing-3xl  { padding-block: var(--s2a-section-spacing-3xl); }
+.spacing-4xl  { padding-block: var(--s2a-section-spacing-4xl); }
+.spacing-5xl  { padding-block: var(--s2a-section-spacing-5xl); }
+
+.spacing-none-top { padding-top: var(--s2a-section-spacing-none); }
+.spacing-5xs-top  { padding-top: var(--s2a-section-spacing-5xs); }
+.spacing-4xs-top  { padding-top: var(--s2a-section-spacing-4xs); }
+.spacing-3xs-top  { padding-top: var(--s2a-section-spacing-3xs); }
+.spacing-2xs-top  { padding-top: var(--s2a-section-spacing-2xs); }
+.spacing-xs-top   { padding-top: var(--s2a-section-spacing-xs); }
+.spacing-sm-top   { padding-top: var(--s2a-section-spacing-sm); }
+.spacing-md-top   { padding-top: var(--s2a-section-spacing-md); }
+.spacing-lg-top   { padding-top: var(--s2a-section-spacing-lg); }
+.spacing-xl-top   { padding-top: var(--s2a-section-spacing-xl); }
+.spacing-2xl-top  { padding-top: var(--s2a-section-spacing-2xl); }
+.spacing-3xl-top  { padding-top: var(--s2a-section-spacing-3xl); }
+.spacing-4xl-top  { padding-top: var(--s2a-section-spacing-4xl); }
+.spacing-5xl-top  { padding-top: var(--s2a-section-spacing-5xl); }
+
+.spacing-none-bottom { padding-bottom: var(--s2a-section-spacing-none); }
+.spacing-5xs-bottom  { padding-bottom: var(--s2a-section-spacing-5xs); }
+.spacing-4xs-bottom  { padding-bottom: var(--s2a-section-spacing-4xs); }
+.spacing-3xs-bottom  { padding-bottom: var(--s2a-section-spacing-3xs); }
+.spacing-2xs-bottom  { padding-bottom: var(--s2a-section-spacing-2xs); }
+.spacing-xs-bottom   { padding-bottom: var(--s2a-section-spacing-xs); }
+.spacing-sm-bottom   { padding-bottom: var(--s2a-section-spacing-sm); }
+.spacing-md-bottom   { padding-bottom: var(--s2a-section-spacing-md); }
+.spacing-lg-bottom   { padding-bottom: var(--s2a-section-spacing-lg); }
+.spacing-xl-bottom   { padding-bottom: var(--s2a-section-spacing-xl); }
+.spacing-2xl-bottom  { padding-bottom: var(--s2a-section-spacing-2xl); }
+.spacing-3xl-bottom  { padding-bottom: var(--s2a-section-spacing-3xl); }
+.spacing-4xl-bottom  { padding-bottom: var(--s2a-section-spacing-4xl); }
+.spacing-5xl-bottom  { padding-bottom: var(--s2a-section-spacing-5xl); }
+
+/* tokens.static — fixed value, no responsive override */
+.spacing-5xs-static  { padding-block: var(--s2a-spacing-xs); }
+.spacing-4xs-static  { padding-block: var(--s2a-spacing-sm); }
+.spacing-3xs-static  { padding-block: var(--s2a-spacing-md); }
+.spacing-2xs-static  { padding-block: var(--s2a-spacing-lg); }
+.spacing-xs-static   { padding-block: var(--s2a-spacing-xl); }
+.spacing-sm-static   { padding-block: var(--s2a-spacing-2xl); }
+.spacing-md-static   { padding-block: var(--s2a-spacing-3xl); }
+.spacing-lg-static   { padding-block: var(--s2a-spacing-4xl); }
+.spacing-xl-static   { padding-block: var(--s2a-layout-sm); }
+.spacing-2xl-static  { padding-block: var(--s2a-layout-md); }
+.spacing-3xl-static  { padding-block: var(--s2a-layout-lg); }
+.spacing-4xl-static  { padding-block: var(--s2a-layout-xl); }
+.spacing-5xl-static  { padding-block: var(--s2a-layout-2xl); }
